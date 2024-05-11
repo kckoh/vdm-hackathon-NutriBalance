@@ -1,8 +1,13 @@
 from typing import Union
 
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
+from pydantic import BaseModel
 
 app = FastAPI()
+
+# class Image(BaseModel):
+#     name: str
+#     price: float
 
 
 @app.get("/")
@@ -10,6 +15,10 @@ def read_root():
     return {"Hello": "World"}
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+@app.post("/api/parse/image")
+async def parse_image(image: UploadFile = File(...)):
+    # Read the uploaded image file
+    contents = await image.read()
+    print(f"Image {image} is {len(contents)} bytes")
+    
+    return {"message": "Image received and processed"}
