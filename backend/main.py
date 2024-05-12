@@ -81,7 +81,7 @@ def process_ocr_results(ocr_result):
     for index, item in enumerate(ocr_result):
         best_match = process.extractOne(item, essential_nutrients)
 
-        if best_match[1] > 80:
+        if best_match[1] >= 80:
             print(f"Original: {item}, Corrected: {best_match[0]}, Score: {best_match[1]}")
             res[best_match[0]] = ocr_result[index+1]
 
