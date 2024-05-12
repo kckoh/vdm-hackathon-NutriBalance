@@ -1,67 +1,69 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 const data = [
     {
-      firstName: "Jane",
-      surname: "Doe",
+      Nutrition: "Jane",
+      Value: "Doe",
       age: 13,
       gender: "Female",
     },
     {
-      firstName: "John",
-      surname: "Doe",
+      Nutrition: "John",
+      Value: "Doe",
       age: 43,
       gender: "Male",
     },
     {
-      firstName: "Tom",
-      surname: "Doe",
+      Nutrition: "Tom",
+      Value: "Doe",
       age: 89,
       gender: "Male",
     },
   ];
-  
-
-  function CustomHTMLElement(props) {
-    return <div dangerouslySetInnerHTML={{__html: props.customHtml}} />
-  }
 
   function Table() {
 
+    const [dataArray, setDataArray] = useState(data);
+    const [tableData, setTableData] = useState(data);
+
     const AddRow = () => {
-      data.push({ firstName: '', surname: '', age: '', gender: ''})
+      setDataArray([...dataArray, {Nutrition: '', Value: ''}]);
     }
+
+    const correctInput = (e) => {
+      
+    }
+
+    useEffect(() => {
+      setTableData(dataArray)
+    }, [dataArray])
+
+
   
     return ( 
       <div style={{maxHeight: '150px', overflowY:'scroll', width: 'inline-block'}}> 
-      <table style={{border:"1px solid #81C667", width: '500px', borderSpacing: '0'}}>
+       <span>
+              <img onClick={AddRow} style={{width: '15px', height: '15px'}} src='/Icons/addIcon.png'/>
+            </span>    
+      <table style={{border:"1px solid #81C667", width: '80%', borderSpacing: '0'}}> 
         <thead style={{background:"#81C667", width: '100%', color: '#fff', position: 'sticky'}}>
          <tr>
             <th style={{padding: '15px', textAlign: 'left', }} >Nutrition</th>
-            <th style={{padding: '15px', textAlign: 'left', }}>Value 
-            <span onClick={AddRow()}>
-              <img style={{width: '15px', height: '15px'}} src='/Icons/addIcon.png'/>
-            </span>                
+            <th style={{padding: '15px', textAlign: 'left', }}>Value            
       </th>
          </tr>
         </thead>
         <tbody >
-          {data.map((row) => {
+          {tableData.map((row) => {
             return (
               <tr key={row.id}>
-                    <td style={data.indexOf(row) === data.length-1 ? {width:'50%', textAlign: 'center', padding: '10px 0'} : {borderBottom:'1px solid #81C667', width:'50%', textAlign: 'center', padding: '10px 0'}}>
-                    <div>
-                    <CustomHTMLElement
-                      customHtml={`<input style="border: 0px; background-color: transparent" placeholder='Enter text' value='${row.firstName}' />`}
-                    />
-                    </div>
-                      
+                    <td style={tableData.indexOf(row) === tableData.length-1 ? {width:'50%', textAlign: 'center', padding: '10px 0'} : {borderBottom:'1px solid #81C667', width:'50%', textAlign: 'center', padding: '10px 0'}}>
+                    <input style={{border: '0px', backgroundColor: 'transparent'}}  placeholder= "Enter text" value={row.Nutrition}/>
                     </td>
-                    <td style={ data.indexOf(row) === data.length-1 ?{width: '100%', textAlign: 'center', padding: '10px 0', display: 'flex', justifyContent: 'space-around'} : {borderBottom:'1px solid #81C667', width:'100%', textAlign: 'center', padding: '10px 0', display: 'flex', justifyContent: 'space-around'}}>
+                    <td style={ tableData.indexOf(row) === tableData.length-1 ?{width: '100%', textAlign: 'center', padding: '10px 0', display: 'flex', justifyContent: 'space-around'} : {borderBottom:'1px solid #81C667', width:'100%', textAlign: 'center', padding: '10px 0', display: 'flex', justifyContent: 'space-around'}}>
                     <div>
-                    <CustomHTMLElement
-                      customHtml={`<input style=" border: 0px; background-color: transparent" placeholder='Enter text' value='${row.surname}' />`}
-                    />
+                    <input style={{border: '0px', backgroundColor: 'transparent'}}  placeholder= "Enter text" value={row.Value}/>
+
                     </div>
                       <span style={{width: '20px', height: '20px'}}>
                         <img src='/Icons/correctionIcon.png'/>
