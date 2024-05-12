@@ -1,49 +1,55 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 
 const data = [
     {
       Nutrition: "Jane",
       Value: "Doe",
-      age: 13,
+      id: 13,
       gender: "Female",
     },
     {
       Nutrition: "John",
       Value: "Doe",
-      age: 43,
+      id: 43,
       gender: "Male",
     },
     {
       Nutrition: "Tom",
       Value: "Doe",
-      age: 89,
+      id: 89,
       gender: "Male",
     },
   ];
 
   function Table() {
 
-    const [dataArray, setDataArray] = useState(data);
-    const [tableData, setTableData] = useState(data);
+    
 
-    const AddRow = () => {
+    const [dataArray, setDataArray] = useState(data);
+
+    const addRow = () => {
       setDataArray([...dataArray, {Nutrition: '', Value: ''}]);
     }
 
-    const correctInput = (e) => {
-      
-    }
+    const correctInput = (e, name, type) => {
+      const test = [...dataArray];
 
-    useEffect(() => {
-      setTableData(dataArray)
-    }, [dataArray])
+      
+      const index = test.findIndex(item => type === 'Nutrition' ? item.Nutrition === name : item.Value === name);
+      if(index !== -1) {
+        test[index][type] = e.target.value;
+        
+        setDataArray(test);
+
+      }
+    }
 
 
   
     return ( 
       <div style={{maxHeight: '150px', overflowY:'scroll', width: 'inline-block'}}> 
        <span>
-              <img onClick={AddRow} style={{width: '15px', height: '15px'}} src='/Icons/addIcon.png'/>
+              <img onClick={addRow} style={{width: '15px', height: '15px'}} src='/Icons/addIcon.png'/>
             </span>    
       <table style={{border:"1px solid #81C667", width: '80%', borderSpacing: '0'}}> 
         <thead style={{background:"#81C667", width: '100%', color: '#fff', position: 'sticky'}}>
@@ -54,15 +60,15 @@ const data = [
          </tr>
         </thead>
         <tbody >
-          {tableData.map((row) => {
+          {dataArray.map((row) => {
             return (
               <tr key={row.id}>
-                    <td style={tableData.indexOf(row) === tableData.length-1 ? {width:'50%', textAlign: 'center', padding: '10px 0'} : {borderBottom:'1px solid #81C667', width:'50%', textAlign: 'center', padding: '10px 0'}}>
-                    <input style={{border: '0px', backgroundColor: 'transparent'}}  placeholder= "Enter text" value={row.Nutrition}/>
+                    <td style={dataArray.indexOf(row) === dataArray.length-1 ? {width:'50%', textAlign: 'center', padding: '10px 0'} : {borderBottom:'1px solid #81C667', width:'50%', textAlign: 'center', padding: '10px 0'}}>
+                    <input style={{border: '0px', backgroundColor: 'transparent'}}  placeholder= "Enter text" onChange={(e)=>correctInput(e, row.Nutrition, 'Nutrition')} value={row.Nutrition}/>
                     </td>
-                    <td style={ tableData.indexOf(row) === tableData.length-1 ?{width: '100%', textAlign: 'center', padding: '10px 0', display: 'flex', justifyContent: 'space-around'} : {borderBottom:'1px solid #81C667', width:'100%', textAlign: 'center', padding: '10px 0', display: 'flex', justifyContent: 'space-around'}}>
+                    <td style={ dataArray.indexOf(row) === dataArray.length-1 ?{width: '100%', textAlign: 'center', padding: '10px 0', display: 'flex', justifyContent: 'space-around'} : {borderBottom:'1px solid #81C667', width:'100%', textAlign: 'center', padding: '10px 0', display: 'flex', justifyContent: 'space-around'}}>
                     <div>
-                    <input style={{border: '0px', backgroundColor: 'transparent'}}  placeholder= "Enter text" value={row.Value}/>
+                    <input style={{border: '0px', backgroundColor: 'transparent'}}  placeholder= "Enter text" onChange={(e)=>correctInput(e, row.Value, 'Value')} value={row.Value}/>
 
                     </div>
                       <span style={{width: '20px', height: '20px'}}>
