@@ -1,14 +1,14 @@
-const Button = () => {
+const ButtonComponent = ({ onClick, children, className = "", ...props }) => {
+  console.log(className);
   return (
-    <form>
-      <div>
-        <button>Yes</button>
-      </div>
-      <div>
-        <button>Retake</button>
-      </div>
-    </form>
+    <button
+      onClick={onClick}
+      className={`px-10 py-5 m-5 mb-2 rounded-lg ${className} font-bold`}
+      {...props}
+    >
+      {children}
+    </button>
   );
 };
 
-export default Button;
+export default ButtonComponent;

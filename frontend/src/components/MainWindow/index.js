@@ -3,14 +3,13 @@ const MainWindow = () => {
   return (
     <form>
       <div>
-        <p>VitaminC</p>
-        <button>Yes</button>
+        <input />
       </div>
       <div>
-        <button>Retake</button>
+        <img src="" alt="" />
       </div>
     </form>
   );
 };
 
-export default Button;
+export default MainWindow;
