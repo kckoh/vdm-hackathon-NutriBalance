@@ -1,4 +1,4 @@
-import Button from "../components/Button/index";
+import Button from "../Components/Button/index";
 
 import { useCallback, useRef, useState } from "react";
 import Webcam from "react-webcam";

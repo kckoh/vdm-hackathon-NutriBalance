@@ -1,9 +1,8 @@
-import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import HomePage from "./pages/Home";
-import ImgUploadPage from "./pages/Img_ upload_page";
-import RootLayout from "./pages/Root";
+import HomePage from "./Pages/Home";
+import ImgUploadPage from "./Pages/Img_ upload_page";
+import RootLayout from "./Pages/Root";
 import SubmitInfoPage from './Pages/SubmitInfoPage';
 import InfoDisplayPage from './Pages/InfoDisplayPage';
 
