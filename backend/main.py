@@ -1,5 +1,10 @@
 from typing import Union
 
+<<<<<<< HEAD
+from fastapi import FastAPI
+
+app = FastAPI()
+=======
 from fastapi import FastAPI, File, UploadFile, Body,Request
 from pydantic import BaseModel
 import easyocr
@@ -46,6 +51,7 @@ essential_nutrients = [
     # Herbs and Botanicals
     'Echinacea', 'Ginkgo biloba', 'Ginseng', 'Garlic',
 ]
+>>>>>>> daa73b2f46434165bc236b1cf28ff64fe24be8d1
 
 
 @app.get("/")
@@ -53,6 +59,11 @@ def read_root():
     return {"Hello": "World"}
 
 
+<<<<<<< HEAD
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}
+=======
 @app.post("/api/parse/image")
 async def parse_image(image: UploadFile = File(...)):
     # Read the uploaded image file
@@ -86,3 +97,4 @@ def process_ocr_results(ocr_result):
             res[best_match[0]] = ocr_result[index+1]
 
     return res
+>>>>>>> daa73b2f46434165bc236b1cf28ff64fe24be8d1
