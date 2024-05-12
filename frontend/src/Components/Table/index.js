@@ -28,16 +28,17 @@ const data = [
 
   function Table() {
   
-    return (
+    return ( 
+      <div style={{maxHeight: '150px', overflowY:'scroll', width: 'inline-block'}}> 
       <table style={{border:"1px solid #81C667", width: '500px', borderSpacing: '0'}}>
-        <thead style={{background:"#81C667", width: '100%', color: '#fff'}}>
+        <thead style={{background:"#81C667", width: '100%', color: '#fff', position: 'sticky'}}>
          <tr>
             <th style={{padding: '15px', textAlign: 'left', }} >Nutrition</th>
             <th style={{padding: '15px', textAlign: 'left', }}>Value                 
-</th>
+      </th>
          </tr>
         </thead>
-        <tbody>
+        <tbody >
           {data.map((row) => {
             return (
               <tr key={row.id}>
@@ -65,6 +66,7 @@ const data = [
           })}
         </tbody>
       </table>
+      </div>
     );
   }
 
