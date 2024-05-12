@@ -1,4 +1,4 @@
-
+import {useState} from 'react';
 
 const data = [
     {
@@ -27,6 +27,10 @@ const data = [
   }
 
   function Table() {
+
+    const AddRow = () => {
+      data.push({ firstName: '', surname: '', age: '', gender: ''})
+    }
   
     return ( 
       <div style={{maxHeight: '150px', overflowY:'scroll', width: 'inline-block'}}> 
@@ -34,7 +38,10 @@ const data = [
         <thead style={{background:"#81C667", width: '100%', color: '#fff', position: 'sticky'}}>
          <tr>
             <th style={{padding: '15px', textAlign: 'left', }} >Nutrition</th>
-            <th style={{padding: '15px', textAlign: 'left', }}>Value                 
+            <th style={{padding: '15px', textAlign: 'left', }}>Value 
+            <span onClick={AddRow()}>
+              <img style={{width: '15px', height: '15px'}} src='/Icons/addIcon.png'/>
+            </span>                
       </th>
          </tr>
         </thead>
@@ -61,7 +68,6 @@ const data = [
                       </span>
                     </td>
               </tr>
-              
             );
           })}
         </tbody>
