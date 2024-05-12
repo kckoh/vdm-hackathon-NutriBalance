@@ -1,4 +1,3 @@
-import Table from "../Components/Table";
 
 function InfoDisplayPage() {
   return (
@@ -7,9 +6,15 @@ function InfoDisplayPage() {
         Vitamin C
       </h3>
       <div style={{width: '25%', height: '200px', border: '1px solid orange', marginBottom: '50px'}}>
-        
       </div>
-        <Table />
+      <div>
+      <span style={{position: 'absolute', top: '75%', left: '40%'}}>
+        <img src="/Icons/loadingIcon.png" />
+      </span>
+      <textarea style={{width: '500px',height: '300px', overflowY: 'scroll', borderRadius: '10px', border: '1px solid #81C667' }}>
+        asdfsdfsdfs
+      </textarea>
+      </div>
     </div>
   );
 }
