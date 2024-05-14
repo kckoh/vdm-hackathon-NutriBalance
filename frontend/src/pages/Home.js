@@ -1,5 +1,6 @@
 import img from "../image/clickLogo.png";
 import { Link } from "react-router-dom";
+import NavPage from "../components/NavBar";
 
 const HomePage = () => {
   return (
