@@ -1,3 +1,6 @@
+import Button from "../Components/Button";
+import { Link } from "react-router-dom";
+
 import Table from "../Components/Table";
 
 function SubmitInfoPage() {
@@ -10,6 +13,17 @@ function SubmitInfoPage() {
         
       </div>
         <Table />
+        <Link to='/result'>
+              <Button className="text-white bg-[#81C667]">
+                Send
+              </Button>
+              </Link>
+              <Button
+                
+                className="bg-white text-[#81C667] border-2 border-[#81C668] "
+              >
+                Refresh
+              </Button>
     </div>
   );
 }
