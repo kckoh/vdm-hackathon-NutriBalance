@@ -1,8 +1,10 @@
-import NavPage from "../components/NavBar";
-import { useAppSelector } from "../store";
+import { useSelector } from "react-redux";
 
 function InfoDisplayPage() {
-  const img = useAppSelector((store) => store.img);
+  //base64로 인코딩된 이미지는 그대로 sorce로도 사용가능
+  const img = useSelector((state) => state.camera.image);
+
+  console.log(img);
 
   return (
     <>
@@ -19,7 +21,11 @@ function InfoDisplayPage() {
             marginBottom: "50px",
           }}
         >
-          {img}
+          <img
+            src={img}
+            alt="Captured"
+            style={{ width: "100%", height: "100%" }}
+          />
         </div>
         <div>
           <span style={{ position: "absolute", top: "75%", left: "40%" }}>
@@ -33,9 +39,7 @@ function InfoDisplayPage() {
               borderRadius: "10px",
               border: "1px solid #81C667",
             }}
-          >
-            asdfsdfsdfs
-          </textarea>
+          ></textarea>
         </div>
       </div>
     </>

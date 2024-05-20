@@ -21,8 +21,8 @@ const ImgUploadPage = () => {
 
   const capturePhoto = useCallback(async () => {
     const imageSrc = webcamRef.current.getScreenshot();
-    setScreenshot(true);
 
+    setScreenshot(true);
     setImgUrl(imageSrc);
   }, [webcamRef]);
 
@@ -38,7 +38,6 @@ const ImgUploadPage = () => {
 
   return (
     <>
-      <NavPage />
       <div className="flex-col">
         <div className="justify-center border-4 border-[#81C668] m-10 p-5 rounded-lg">
           {!screenshot ? (

@@ -1,13 +1,21 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
-import cameraReducer from "./reducers/saveImage"; // cameraSlice에서 reducer를 import
+import { persistStore, persistReducer } from "redux-persist";
+import rootReducer from "./reducers/index"; // cameraSlice에서 reducer를 import
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
-  reducer: {
-    camera: cameraReducer, // `camera`라는 key로 cameraReducer를 매핑
-  },
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }),
 });
 
-export default store;
+const persistor = persistStore(store);
 
-export const useAppSelector = useSelector;
+export { store, persistor };
