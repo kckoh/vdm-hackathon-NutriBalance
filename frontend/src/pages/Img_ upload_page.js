@@ -1,6 +1,7 @@
 import Button from "../Components/Button/index";
 
 import { useCallback, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import Webcam from "react-webcam";
 
 const videoConstraints = {
@@ -59,9 +60,11 @@ const ImgUploadPage = () => {
             </Button>
           ) : (
             <>
+            <Link to='/submit'>
               <Button onClick={sendPicture} className="text-white bg-[#81C667]">
                 Send
               </Button>
+              </Link>
               <Button
                 onClick={() => {
                   setUrl(null);
