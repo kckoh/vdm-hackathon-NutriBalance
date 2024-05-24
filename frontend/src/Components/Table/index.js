@@ -47,15 +47,15 @@ const data = [
 
   
     return ( 
-      <div style={{maxHeight: '150px', overflowY:'scroll', width: 'inline-block'}}> 
-       <span>
-              <img onClick={addRow} style={{width: '15px', height: '15px'}} src='/Icons/addIcon.png'/>
-            </span>    
+      <div style={{maxHeight: '250px', overflowY:'scroll', width: 'inline-block'}}> 
+       <button style={{position: 'absolute', top: '64.5%', right: '32%', zIndex: 99}}>
+              <img onClick={addRow} style={{width: '18px', height: '18px' }} src='/Icons/addIcon.png'/>
+            </button>    
       <table style={{border:"1px solid #81C667", width: '80%', borderSpacing: '0'}}> 
         <thead style={{background:"#81C667", width: '100%', color: '#fff', position: 'sticky'}}>
          <tr>
-            <th style={{padding: '15px', textAlign: 'left', }} >Nutrition</th>
-            <th style={{padding: '15px', textAlign: 'left', }}>Value            
+            <th style={{padding: '15px', textAlign: 'center', }} >Nutrition</th>
+            <th style={{padding: '15px', textAlign: 'center', }}>Value            
       </th>
          </tr>
         </thead>
@@ -71,9 +71,14 @@ const data = [
                     <input style={{border: '0px', backgroundColor: 'transparent'}}  placeholder= "Enter text" onChange={(e)=>correctInput(e, row.Value, 'Value')} value={row.Value}/>
 
                     </div>
-                      <span style={{width: '20px', height: '20px'}}>
+                    <div>
+                    <button style={{width: '20px', height: '20px'}}>
+                        <img src='/Icons/closeIcon.png'/>
+                      </button>
+                      <button style={{width: '20px', height: '20px'}}>
                         <img src='/Icons/correctionIcon.png'/>
-                      </span>
+                      </button>
+                      </div>
                     </td>
               </tr>
             );

@@ -13,6 +13,7 @@ function SubmitInfoPage() {
         
       </div>
         <Table />
+        <div style={{marginTop: '50px', textAlign: 'center'}}>
         <Link to='/result'>
               <Button className="text-white bg-[#81C667]">
                 Send
@@ -24,6 +25,7 @@ function SubmitInfoPage() {
               >
                 Refresh
               </Button>
+              </div>
     </div>
   );
 }
