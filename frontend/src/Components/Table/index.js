@@ -32,14 +32,14 @@ const data = [
     }
 
     const correctInput = (e, name, type) => {
-      const test = [...dataArray];
+      const newData = [...dataArray];
 
       
-      const index = test.findIndex(item => type === 'Nutrition' ? item.Nutrition === name : item.Value === name);
+      const index = newData.findIndex(item => type === 'Nutrition' ? item.Nutrition === name : item.Value === name);
       if(index !== -1) {
-        test[index][type] = e.target.value;
+        newData[index][type] = e.target.value;
         
-        setDataArray(test);
+        setDataArray(newData);
 
       }
     }
