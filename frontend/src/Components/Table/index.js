@@ -55,7 +55,7 @@ const data = [
     return ( 
       <div style={{maxHeight: '250px', overflowY:'scroll', width: 'inline-block'}}> 
        <button style={{position: 'absolute', top: '64.5%', right: '32%', zIndex: 99}}>
-              <img onClick={addRow} style={{width: '18px', height: '18px' }} src='/Icons/addIcon.png'/>
+              <img onClick={addRow} style={{width: '18px', height: '18px' }} src='/Icons/addIcon.png' alt='add row icon'/>
             </button>    
       <table style={{border:"1px solid #81C667", width: '80%', borderSpacing: '0'}}> 
         <thead style={{background:"#81C667", width: '100%', color: '#fff', position: 'sticky'}}>
