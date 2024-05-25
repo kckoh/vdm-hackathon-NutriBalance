@@ -42,7 +42,6 @@ const data = [
     }
 
     const ClickDeleteButton = ( id) => {
-      console.log('delete', id );
       const newData = [...dataArray];
       const deleteItem = newData.findIndex(item => item.id === id);
       if(deleteItem!== -1) {
@@ -80,10 +79,10 @@ const data = [
                     </div>
                     <div>
                     <button style={{width: '20px', height: '20px'}} onClick={() =>ClickDeleteButton( row.id) }>
-                        <img src='/Icons/closeIcon.png'/>
+                        <img src='/Icons/closeIcon.png' alt='row delete icon'/>
                       </button>
                       <button style={{width: '20px', height: '20px'}}>
-                        <img src='/Icons/correctionIcon.png'/>
+                        <img src='/Icons/correctionIcon.png' alt='row correcting icon'/>
                       </button>
                       </div>
                     </td>
