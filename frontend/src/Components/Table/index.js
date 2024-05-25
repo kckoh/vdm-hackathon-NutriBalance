@@ -23,8 +23,6 @@ const data = [
 
   function Table() {
 
-    
-
     const [dataArray, setDataArray] = useState(data);
 
     const addRow = () => {
@@ -38,9 +36,18 @@ const data = [
       const index = newData.findIndex(item => type === 'Nutrition' ? item.Nutrition === name : item.Value === name);
       if(index !== -1) {
         newData[index][type] = e.target.value;
-        
         setDataArray(newData);
 
+      }
+    }
+
+    const ClickDeleteButton = ( id) => {
+      console.log('delete', id );
+      const newData = [...dataArray];
+      const deleteItem = newData.findIndex(item => item.id === id);
+      if(deleteItem!== -1) {
+        newData.splice(deleteItem, 1);
+        setDataArray(newData);
       }
     }
 
@@ -72,7 +79,7 @@ const data = [
 
                     </div>
                     <div>
-                    <button style={{width: '20px', height: '20px'}}>
+                    <button style={{width: '20px', height: '20px'}} onClick={() =>ClickDeleteButton( row.id) }>
                         <img src='/Icons/closeIcon.png'/>
                       </button>
                       <button style={{width: '20px', height: '20px'}}>
