@@ -1,5 +1,4 @@
-import Table from "../components/Table";
-import NavPage from "../components/NavBar";
+import Table from "../Components/Table/index";
 
 function SubmitInfoPage() {
   return (

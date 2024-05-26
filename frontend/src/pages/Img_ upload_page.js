@@ -1,10 +1,10 @@
-import Button from "../components/Button/index";
+import Button from "../Components/Button/index";
 
 import { useCallback, useRef, useState } from "react";
 import Webcam from "react-webcam";
-import NavPage from "../components/NavBar";
 import { useDispatch } from "react-redux";
 import { saveImage } from "../reducers/saveImage";
+import { sendData } from "../util/api";
 
 const videoConstraints = {
   facingMode: "environment",
@@ -14,26 +14,27 @@ const videoConstraints = {
 const ImgUploadPage = () => {
   const webcamRef = useRef(null);
   const dispatch = useDispatch();
-
   const [imgUrl, setImgUrl] = useState(null);
-
   const [screenshot, setScreenshot] = useState(false);
 
-  const capturePhoto = useCallback(async () => {
+  const capturePhoto = useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
-
     setScreenshot(true);
     setImgUrl(imageSrc);
   }, [webcamRef]);
 
-  //Manage State
-  const onUserMedia = (e) => {
-    console.log(e);
+  const sendPicture = async () => {
+    try {
+      dispatch(saveImage(imgUrl));
+      const response = await sendData(imgUrl);
+      console.log("Image sent successfully", response);
+    } catch (error) {
+      console.error("Failed to send image", error);
+    }
   };
 
-  const sendPicture = () => {
-    dispatch(saveImage(imgUrl));
-    console.log("succeed");
+  const onUserMedia = (e) => {
+    console.log(e);
   };
 
   return (
@@ -42,13 +43,13 @@ const ImgUploadPage = () => {
         <div className="justify-center border-4 border-[#81C668] m-10 p-5 rounded-lg">
           {!screenshot ? (
             <Webcam
-              className="size-full rounded-lg"
+              className="size-full rounded-lg transform -scale-x-1"
               ref={webcamRef}
               audio={false}
               screenshotFormat="image/png"
               videoConstraints={videoConstraints}
               onUserMedia={onUserMedia}
-              mirrored={true}
+              mirrored={false}
             />
           ) : (
             <div>

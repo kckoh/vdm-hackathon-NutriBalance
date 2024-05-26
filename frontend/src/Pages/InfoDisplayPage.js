@@ -15,10 +15,11 @@ function InfoDisplayPage() {
         <h3>Vitamin C</h3>
         <div
           style={{
-            width: "25%",
-            height: "200px",
+            width: "50%",
+            height: "250px",
             border: "1px solid orange",
             marginBottom: "50px",
+            marginTop: "20px ",
           }}
         >
           <img
