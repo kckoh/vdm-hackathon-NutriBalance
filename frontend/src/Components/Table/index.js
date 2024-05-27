@@ -2,42 +2,41 @@ import {useState} from 'react';
 
 const data = [
     {
-      Nutrition: "Jane",
-      Value: "Doe",
-      id: 13,
-      gender: "Female",
+      Nutrition: "Vitamin D",
+      Value: "50 mmg"
     },
     {
-      Nutrition: "John",
-      Value: "Doe",
-      id: 43,
-      gender: "Male",
+      Nutrition:  "Iron",
+      Value: "30 mmg"
     },
     {
-      Nutrition: "Tom",
-      Value: "Doe",
-      id: 89,
-      gender: "Male",
+      Nutrition: "Mineral",
+      Value : "50 mmg"
     },
   ];
 
   function Table() {
 
     const [dataArray, setDataArray] = useState(data);
-
+    const fixDataFormat = () => {
+      let newDataArray;
+      const newData = [...dataArray];
+      newData.forEach((item, index) => {
+        // newDataArray.push({item.Nutrition : item.Value})
+      });
+      
+    }
+    fixDataFormat();
     const addRow = () => {
       setDataArray([...dataArray, {Nutrition: '', Value: ''}]);
     }
 
     const correctInput = (e, name, type) => {
       const newData = [...dataArray];
-
-      
       const index = newData.findIndex(item => type === 'Nutrition' ? item.Nutrition === name : item.Value === name);
       if(index !== -1) {
         newData[index][type] = e.target.value;
         setDataArray(newData);
-
       }
     }
 
@@ -48,8 +47,8 @@ const data = [
         newData.splice(deleteItem, 1);
         setDataArray(newData);
       }
+      console.log(newData);
     }
-
 
   
     return ( 
