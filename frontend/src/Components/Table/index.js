@@ -18,15 +18,20 @@ const data = [
   function Table() {
 
     const [dataArray, setDataArray] = useState(data);
-    const fixDataFormat = () => {
-      let newDataArray;
-      const newData = [...dataArray];
-      newData.forEach((item, index) => {
-        // newDataArray.push({item.Nutrition : item.Value})
+
+
+    function convertDataFormat(data) {
+      const newData = data.map(item => {
+          const newItem = {};
+          newItem[item.Nutrition] = item.Value;
+          return newItem;
       });
-      
-    }
-    fixDataFormat();
+      return newData;
+  }
+  
+  const newData = convertDataFormat(data);
+  console.log(newData); // after connecting to backend api, erase it
+
     const addRow = () => {
       setDataArray([...dataArray, {Nutrition: '', Value: ''}]);
     }
@@ -47,7 +52,6 @@ const data = [
         newData.splice(deleteItem, 1);
         setDataArray(newData);
       }
-      console.log(newData);
     }
 
   
