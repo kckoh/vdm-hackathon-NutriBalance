@@ -20,7 +20,7 @@ const data = [
     const [dataArray, setDataArray] = useState(data);
 
 
-    function convertDataFormat(data) {
+    function ConvertDataFormat(data) {
       const newData = data.map(item => {
           const newItem = {};
           newItem[item.Nutrition] = item.Value;
@@ -29,15 +29,15 @@ const data = [
       return newData;
   }
   
-  const convertedData = convertDataFormat(data); // where would it be more suitable?
+  const convertedData = ConvertDataFormat(data); // where would it be more suitable?
 
   sessionStorage.setItem('data', JSON.stringify(convertedData));
 
-    const addRow = () => {
+    const AddRow = () => {
       setDataArray([...dataArray, {Nutrition: '', Value: ''}]);
     }
 
-    const correctInput = (e, name, type) => {
+    const CorrectInput = (e, name, type) => {
       const newData = [...dataArray];
       const index = newData.findIndex(item => type === 'Nutrition' ? item.Nutrition === name : item.Value === name);
       if(index !== -1) {
@@ -59,7 +59,7 @@ const data = [
     return ( 
       <div style={{maxHeight: '250px', overflowY:'scroll', width: 'inline-block'}}> 
        <button style={{position: 'absolute', top: '64.5%', right: '32%', zIndex: 99}}>
-              <img onClick={addRow} style={{width: '18px', height: '18px' }} src='/Icons/addIcon.png' alt='add row icon'/>
+              <img onClick={AddRow} style={{width: '18px', height: '18px' }} src='/Icons/addIcon.png' alt='add row icon'/>
             </button>    
       <table style={{border:"1px solid #81C667", width: '80%', borderSpacing: '0'}}> 
         <thead style={{background:"#81C667", width: '100%', color: '#fff', position: 'sticky'}}>
@@ -74,11 +74,11 @@ const data = [
             return (
               <tr key={row.id}>
                     <td style={dataArray.indexOf(row) === dataArray.length-1 ? {width:'50%', textAlign: 'center', padding: '10px 0'} : {borderBottom:'1px solid #81C667', width:'50%', textAlign: 'center', padding: '10px 0'}}>
-                    <input style={{border: '0px', backgroundColor: 'transparent'}}  placeholder= "Enter text" onChange={(e)=>correctInput(e, row.Nutrition, 'Nutrition')} value={row.Nutrition}/>
+                    <input style={{border: '0px', backgroundColor: 'transparent'}}  placeholder= "Enter text" onChange={(e)=>CorrectInput(e, row.Nutrition, 'Nutrition')} value={row.Nutrition}/>
                     </td>
                     <td style={ dataArray.indexOf(row) === dataArray.length-1 ?{width: '100%', textAlign: 'center', padding: '10px 0', display: 'flex', justifyContent: 'space-around'} : {borderBottom:'1px solid #81C667', width:'100%', textAlign: 'center', padding: '10px 0', display: 'flex', justifyContent: 'space-around'}}>
                     <div>
-                    <input style={{border: '0px', backgroundColor: 'transparent'}}  placeholder= "Enter text" onChange={(e)=>correctInput(e, row.Value, 'Value')} value={row.Value}/>
+                    <input style={{border: '0px', backgroundColor: 'transparent'}}  placeholder= "Enter text" onChange={(e)=>CorrectInput(e, row.Value, 'Value')} value={row.Value}/>
 
                     </div>
                     <div>

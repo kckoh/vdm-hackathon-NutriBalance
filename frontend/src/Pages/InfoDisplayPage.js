@@ -1,5 +1,10 @@
 
 function InfoDisplayPage() {
+
+  const getData =() => {
+    console.log('getting Data')
+  }
+
   return (
     <div className="InfoDisplayPage" style={{ margin: '50px', padding: '5%'}}>
       <h3>
