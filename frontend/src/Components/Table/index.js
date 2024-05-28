@@ -30,7 +30,7 @@ const data = [
   }
   
   const newData = convertDataFormat(data);
-  console.log(newData); // after connecting to backend api, erase it
+  console.log(newData); // after connecting to backend api, erase it. It happens when clicking send button
 
     const addRow = () => {
       setDataArray([...dataArray, {Nutrition: '', Value: ''}]);

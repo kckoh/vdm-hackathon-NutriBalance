@@ -20,7 +20,7 @@ function SubmitInfoPage() {
               </Button>
               </Link>
               <Button
-                
+                onClick={() =>  window.location.reload()}
                 className="bg-white text-[#81C667] border-2 border-[#81C668] "
               >
                 Refresh
