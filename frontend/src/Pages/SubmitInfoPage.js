@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 import Table from "../Components/Table";
 
 function SubmitInfoPage() {
+
+  const SubmitData = () => {
+    const data = sessionStorage.getItem('data');
+    console.log("Submit Data", data); // after connecting to backend api. erase it
+  }
+
   return (
     <div className="InfoDisplayPage" style={{ margin: '50px', padding: '5%'}}>
       <h3>
@@ -15,7 +21,9 @@ function SubmitInfoPage() {
         <Table />
         <div style={{marginTop: '50px', textAlign: 'center'}}>
         <Link to='/result'>
-              <Button className="text-white bg-[#81C667]">
+              <Button
+              onClick={() => SubmitData()}
+              className="text-white bg-[#81C667]">
                 Send
               </Button>
               </Link>

@@ -29,8 +29,9 @@ const data = [
       return newData;
   }
   
-  const newData = convertDataFormat(data);
-  console.log(newData); // after connecting to backend api, erase it. It happens when clicking send button
+  const convertedData = convertDataFormat(data); // where would it be more suitable?
+
+  sessionStorage.setItem('data', JSON.stringify(convertedData));
 
     const addRow = () => {
       setDataArray([...dataArray, {Nutrition: '', Value: ''}]);
