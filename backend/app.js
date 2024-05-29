@@ -1,10 +1,12 @@
+const port = 3060;
 const express = require("express");
-
 const app = express();
 const cors = require("cors");
-const port = 3060;
+const dotenv = require("dotenv");
 
 const imageRouter = require("./routes/imageRoutes");
+
+dotenv.config();
 
 app.use(express.json());
 app.use(

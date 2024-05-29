@@ -1,0 +1,84 @@
+{
+  "supplements": [
+    {
+      "name": "Multivitamin",
+      "benefits": "Provides a balanced intake of various vitamins and minerals."
+    },
+    {
+      "name": "Vitamin D",
+      "benefits": "Supports bone health and immune function, especially important during winter months."
+    },
+    {
+      "name": "Omega-3 Fatty Acids",
+      "benefits": "Promotes heart health and reduces inflammation, typically derived from fish oil."
+    },
+    {
+      "name": "Vitamin C",
+      "benefits": "Boosts the immune system and acts as an antioxidant."
+    },
+    {
+      "name": "Calcium",
+      "benefits": "Maintains bone and dental health, and helps prevent osteoporosis."
+    },
+    {
+      "name": "Probiotics",
+      "benefits": "Improves gut health and aids digestion."
+    },
+    {
+      "name": "Magnesium",
+      "benefits": "Necessary for muscle function, nerve function, blood sugar control, and protein synthesis."
+    },
+    {
+      "name": "Vitamin B Complex",
+      "benefits": "Crucial for energy production, brain function, and cell metabolism."
+    },
+    {
+      "name": "Iron",
+      "benefits": "Essential for red blood cell production and preventing iron deficiency anemia, especially in women."
+    },
+    {
+      "name": "Zinc",
+      "benefits": "Important for immune function, wound healing, and protein synthesis."
+    },
+    {
+      "name": "Vitamin E",
+      "benefits": "A powerful antioxidant that protects cells from damage."
+    },
+    {
+      "name": "Selenium",
+      "benefits": "Acts as an antioxidant and supports thyroid function."
+    },
+    {
+      "name": "Coenzyme Q10",
+      "benefits": "Helps with energy production and acts as an antioxidant."
+    },
+    {
+      "name": "Vitamin K",
+      "benefits": "Important for blood clotting and bone health."
+    },
+    {
+      "name": "Iodine",
+      "benefits": "Necessary for the production of thyroid hormones."
+    },
+    {
+      "name": "Potassium",
+      "benefits": "Essential for electrolyte balance, muscle function, and heart health."
+    },
+    {
+      "name": "Choline",
+      "benefits": "Important for brain function and liver health."
+    },
+    {
+      "name": "Biotin (Vitamin B7)",
+      "benefits": "Supports healthy skin, hair, and nails."
+    },
+    {
+      "name": "Curcumin",
+      "benefits": "Derived from turmeric, it has anti-inflammatory properties."
+    },
+    {
+      "name": "Glucosamine",
+      "benefits": "Supports joint health and helps alleviate symptoms of arthritis."
+    }
+  ]
+}
