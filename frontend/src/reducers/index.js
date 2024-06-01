@@ -4,7 +4,7 @@ import textReducer from "./getText";
 
 const rootReducer = combineReducers({
   camera: cameraReducer,
-  textReducer,
+  text: textReducer,
 });
 
 export default rootReducer;

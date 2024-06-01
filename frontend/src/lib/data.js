@@ -1,4 +1,9 @@
+import { useDispatch } from "react-redux";
+import { getExtractedText } from "../reducers/getText";
+
 async function sendData(imageSrc) {
+  const dispatch = useDispatch();
+
   //Convert base64 image to Bolb
   const fetchResponse = await fetch(imageSrc);
   const blob = await fetchResponse.blob();

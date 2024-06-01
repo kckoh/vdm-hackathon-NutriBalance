@@ -9,6 +9,7 @@ export const textSlice = createSlice({
   initialState,
   reducers: {
     getExtractedText: (state, action) => {
+      console.log(action);
       state.extractedText = action.payload;
     },
   },

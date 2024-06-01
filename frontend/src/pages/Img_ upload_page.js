@@ -1,9 +1,11 @@
 import Button from "../Components/Button/index";
 
 import { useCallback, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import { useDispatch } from "react-redux";
 import { saveImage } from "../reducers/saveImage";
+import { getExtractedText } from "../reducers/getText";
 import { sendData } from "../util/api";
 
 const videoConstraints = {
@@ -14,6 +16,7 @@ const videoConstraints = {
 const ImgUploadPage = () => {
   const webcamRef = useRef(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [imgUrl, setImgUrl] = useState(null);
   const [screenshot, setScreenshot] = useState(false);
 
@@ -25,9 +28,14 @@ const ImgUploadPage = () => {
 
   const sendPicture = async () => {
     try {
+      //save image to transfer to info page
       dispatch(saveImage(imgUrl));
       const response = await sendData(imgUrl);
+
+      //get extracted text from backend
+      dispatch(getExtractedText(response));
       console.log("Image sent successfully", response);
+      navigate("/info");
     } catch (error) {
       console.error("Failed to send image", error);
     }

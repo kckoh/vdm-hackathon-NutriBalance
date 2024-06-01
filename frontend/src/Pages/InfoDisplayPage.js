@@ -3,9 +3,8 @@ import { useSelector } from "react-redux";
 function InfoDisplayPage() {
   //base64로 인코딩된 이미지는 그대로 sorce로도 사용가능
   const img = useSelector((state) => state.camera.image);
-
-  console.log(img);
-
+  const text = useSelector((state) => state.text.extractedText);
+  console.log(text.map((nutrients) => nutrients.item.name));
   return (
     <>
       <div
@@ -32,7 +31,7 @@ function InfoDisplayPage() {
           <span style={{ position: "absolute", top: "75%", left: "40%" }}>
             <img src="/Icons/loadingIcon.png" />
           </span>
-          <textarea
+          <ul
             style={{
               width: "500px",
               height: "300px",
@@ -40,7 +39,11 @@ function InfoDisplayPage() {
               borderRadius: "10px",
               border: "1px solid #81C667",
             }}
-          ></textarea>
+          >
+            {text.map((nutrients) => (
+              <li>{nutrients.item.name}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </>

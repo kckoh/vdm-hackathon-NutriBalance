@@ -46,19 +46,25 @@ exports.sendImage = router.post(
       const options = {
         includeScore: true,
         threshold: 0.8,
-        keys: ["name"],
+        keys: ["name", "dailyRecommendedAmount"],
       };
 
       const fuse = new Fuse(
         nutrientsList.supplements.map((item) => ({
           name: item.name,
+          value: item.dailyRecommendedAmount,
         })),
         options
       );
 
-      const extractedText = fuse.search(text);
+      const results = fuse.search(text);
+      //change the data format
+      const formattedResults = results.map((result) => ({
+        name: result.item.name,
+        value: result.item.value,
+      }));
 
-      res.status(200).send(extractedText);
+      res.status(200).send(formattedResults);
     } catch (error) {
       console.error(error);
     }
