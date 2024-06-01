@@ -1,6 +1,13 @@
 import Table from "../Components/Table/index";
+import Button from "../Components/Button";
+import { Link } from "react-router-dom";
 
 function SubmitInfoPage() {
+  const SubmitData = () => {
+    const data = sessionStorage.getItem("data");
+    console.log("Submit Data", data); // after connecting to backend api. erase it
+  };
+
   return (
     <>
       <div
@@ -17,6 +24,22 @@ function SubmitInfoPage() {
           }}
         ></div>
         <Table />
+        <div style={{ marginTop: "50px", textAlign: "center" }}>
+          <Link to="/result">
+            <Button
+              onClick={() => SubmitData()}
+              className="text-white bg-[#81C667]"
+            >
+              Send
+            </Button>
+          </Link>
+          <Button
+            onClick={() => window.location.reload()}
+            className="bg-white text-[#81C667] border-2 border-[#81C668] "
+          >
+            Refresh
+          </Button>
+        </div>
       </div>
     </>
   );

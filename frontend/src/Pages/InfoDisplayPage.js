@@ -29,7 +29,7 @@ function InfoDisplayPage() {
         </div>
         <div>
           <span style={{ position: "absolute", top: "75%", left: "40%" }}>
-            <img src="/Icons/loadingIcon.png" />
+            <img src="/Icons/loadingIcon.png" alt="Loading" />
           </span>
           <ul
             style={{

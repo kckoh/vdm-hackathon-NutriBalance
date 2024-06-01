@@ -1,11 +1,10 @@
-import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import HomePage from "./pages/Home";
-import ImgUploadPage from "./pages/Img_ upload_page";
-import RootLayout from "./pages/Root";
-import InfoDisplayPage from "./pages/InfoDisplayPage";
-import SubmitInfoPage from "./pages/SubmitInfoPage";
+import HomePage from "./Pages/Home";
+import ImgUploadPage from "./Pages/Img_ upload_page";
+import RootLayout from "./Pages/Root";
+import InfoDisplayPage from "./Pages/InfoDisplayPage";
+import SubmitInfoPage from "./Pages/SubmitInfoPage";
 
 const router = createBrowserRouter([
   {
