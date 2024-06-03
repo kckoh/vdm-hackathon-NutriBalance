@@ -2,83 +2,83 @@
   "supplements": [
     {
       "name": "Multivitamin",
-      "benefits": "Provides a balanced intake of various vitamins and minerals."
+      "dailyRecommendedAmount": "Varies"
     },
     {
       "name": "Vitamin D",
-      "benefits": "Supports bone health and immune function, especially important during winter months."
+      "dailyRecommendedAmount": "15 mcg"
     },
     {
       "name": "Omega-3 Fatty Acids",
-      "benefits": "Promotes heart health and reduces inflammation, typically derived from fish oil."
+      "dailyRecommendedAmount": "250-500 mg"
     },
     {
       "name": "Vitamin C",
-      "benefits": "Boosts the immune system and acts as an antioxidant."
+      "dailyRecommendedAmount": "90 mg"
     },
     {
       "name": "Calcium",
-      "benefits": "Maintains bone and dental health, and helps prevent osteoporosis."
+      "dailyRecommendedAmount": "1000 mg"
     },
     {
       "name": "Probiotics",
-      "benefits": "Improves gut health and aids digestion."
+      "dailyRecommendedAmount": "Varies"
     },
     {
       "name": "Magnesium",
-      "benefits": "Necessary for muscle function, nerve function, blood sugar control, and protein synthesis."
+      "dailyRecommendedAmount": "400-420 mg"
     },
     {
       "name": "Vitamin B Complex",
-      "benefits": "Crucial for energy production, brain function, and cell metabolism."
+      "dailyRecommendedAmount": "Varies"
     },
     {
       "name": "Iron",
-      "benefits": "Essential for red blood cell production and preventing iron deficiency anemia, especially in women."
+      "dailyRecommendedAmount": "8 mg"
     },
     {
       "name": "Zinc",
-      "benefits": "Important for immune function, wound healing, and protein synthesis."
+      "dailyRecommendedAmount": "11 mg"
     },
     {
       "name": "Vitamin E",
-      "benefits": "A powerful antioxidant that protects cells from damage."
+      "dailyRecommendedAmount": "15 mg"
     },
     {
       "name": "Selenium",
-      "benefits": "Acts as an antioxidant and supports thyroid function."
+      "dailyRecommendedAmount": "55 mcg"
     },
     {
       "name": "Coenzyme Q10",
-      "benefits": "Helps with energy production and acts as an antioxidant."
+      "dailyRecommendedAmount": "30-200 mg"
     },
     {
       "name": "Vitamin K",
-      "benefits": "Important for blood clotting and bone health."
+      "dailyRecommendedAmount": "120 mcg"
     },
     {
       "name": "Iodine",
-      "benefits": "Necessary for the production of thyroid hormones."
+      "dailyRecommendedAmount": "150 mcg"
     },
     {
       "name": "Potassium",
-      "benefits": "Essential for electrolyte balance, muscle function, and heart health."
+      "dailyRecommendedAmount": "3400 mg"
     },
     {
       "name": "Choline",
-      "benefits": "Important for brain function and liver health."
+      "dailyRecommendedAmount": "550 mg"
     },
     {
       "name": "Biotin (Vitamin B7)",
-      "benefits": "Supports healthy skin, hair, and nails."
+      "dailyRecommendedAmount": "30 mcg"
     },
     {
       "name": "Curcumin",
-      "benefits": "Derived from turmeric, it has anti-inflammatory properties."
+      "dailyRecommendedAmount": "500-2000 mg"
     },
     {
       "name": "Glucosamine",
-      "benefits": "Supports joint health and helps alleviate symptoms of arthritis."
+      "dailyRecommendedAmount": "1500 mg"
     }
   ]
 }

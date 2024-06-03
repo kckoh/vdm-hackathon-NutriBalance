@@ -5,6 +5,7 @@ function InfoDisplayPage() {
   const img = useSelector((state) => state.camera.image);
   const text = useSelector((state) => state.text.extractedText);
   console.log(text.map((nutrients) => nutrients.item.name));
+
   return (
     <>
       <div

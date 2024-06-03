@@ -42,27 +42,50 @@ exports.sendImage = router.post(
       const text = detections.length ? detections[0].description : "";
 
       console.log("Text is successfully extracted!");
+      console.log(text);
 
       const options = {
         includeScore: true,
         threshold: 0.8,
-        keys: ["name", "dailyRecommendedAmount"],
+        keys: ["name"],
       };
 
-      const fuse = new Fuse(
-        nutrientsList.supplements.map((item) => ({
-          name: item.name,
-          value: item.dailyRecommendedAmount,
-        })),
-        options
-      );
+      // const fuse = new Fuse(
+      //   nutrientsList.supplements.map((item) => ({
+      //     name: item.name,
+      //   })),
+      //   options
+      // );
 
-      const results = fuse.search(text);
+      const fuse = new Fuse(nutrientsList.supplements, options);
+
+      const fuseResults = fuse.search(text);
       //change the data format
-      const formattedResults = results.map((result) => ({
-        name: result.item.name,
-        value: result.item.value,
-      }));
+      // const formattedResults = results.map((result) => ({
+      //   Nutrition: result.item.name,
+      //   Value: result.item.value,
+      // }));
+
+      const formattedResults = fuseResults.forEach((result) => {
+        const regex = new RegExp(
+          `(${result.item.name} \\d+\\s*(mg|g|IU))`,
+          "i"
+        );
+        const match = text.match(regex);
+        if (match) {
+          const parts = match[0].split(" ");
+          console.log({
+            Nutrition: parts.slice(0, -2).join(" "),
+            Value: parts.slice(-2).join(" "),
+          });
+        }
+      });
+
+      console.log(formattedResults);
+
+      //Data 형식은 [
+      // {item: {name: Vitamin B Complex}}
+      // ]
 
       res.status(200).send(formattedResults);
     } catch (error) {

@@ -35,7 +35,7 @@ const ImgUploadPage = () => {
       //get extracted text from backend
       dispatch(getExtractedText(response));
       console.log("Image sent successfully", response);
-      navigate("/info");
+      navigate("/submitInfo");
     } catch (error) {
       console.error("Failed to send image", error);
     }

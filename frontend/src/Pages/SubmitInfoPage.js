@@ -1,8 +1,13 @@
 import Table from "../Components/Table/index";
 import Button from "../Components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function SubmitInfoPage() {
+  const [imgUrl, setImgUrl] = useState(null);
+  const [screenshot, setScreenshot] = useState(false);
+  const navigate = useNavigate();
+
   const SubmitData = () => {
     const data = sessionStorage.getItem("data");
     console.log("Submit Data", data); // after connecting to backend api. erase it
@@ -34,7 +39,11 @@ function SubmitInfoPage() {
             </Button>
           </Link>
           <Button
-            onClick={() => window.location.reload()}
+            onClick={() => {
+              setImgUrl(null);
+              setScreenshot(false);
+              navigate("/upload_image");
+            }}
             className="bg-white text-[#81C667] border-2 border-[#81C668] "
           >
             Refresh
