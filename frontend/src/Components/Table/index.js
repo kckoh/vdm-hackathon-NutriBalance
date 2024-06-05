@@ -21,6 +21,7 @@ function Table() {
   const data = useSelector((state) => state.text.extractedText);
 
   const [dataArray, setDataArray] = useState(data);
+  const [valueArray, setValueArray] = useState();
 
   function ConvertDataFormat(data) {
     const newData = data.map((item) => {

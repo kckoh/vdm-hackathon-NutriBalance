@@ -50,38 +50,42 @@ exports.sendImage = router.post(
         keys: ["name"],
       };
 
-      // const fuse = new Fuse(
-      //   nutrientsList.supplements.map((item) => ({
-      //     name: item.name,
-      //   })),
-      //   options
-      // );
-
-      const fuse = new Fuse(nutrientsList.supplements, options);
+      const fuse = new Fuse(
+        nutrientsList.supplements.map((item) => ({
+          name: item.name,
+          value: item.dailyRecommendedAmount,
+        })),
+        options
+      );
 
       const fuseResults = fuse.search(text);
+
       //change the data format
-      // const formattedResults = results.map((result) => ({
-      //   Nutrition: result.item.name,
-      //   Value: result.item.value,
-      // }));
+      console.log("fuuuuuuuuuuuuuuuuuuuu", fuseResults);
 
-      const formattedResults = fuseResults.forEach((result) => {
-        const regex = new RegExp(
-          `(${result.item.name} \\d+\\s*(mg|g|IU))`,
-          "i"
-        );
-        const match = text.match(regex);
-        if (match) {
-          const parts = match[0].split(" ");
-          console.log({
-            Nutrition: parts.slice(0, -2).join(" "),
-            Value: parts.slice(-2).join(" "),
-          });
-        }
-      });
+      const formattedResults = fuseResults.map((result) => ({
+        Nutrition: result.item.name,
+        Value: result.item.value,
+      }));
 
-      console.log(formattedResults);
+      //////////////////////////// temporarly code to seperate texts and number by using geral expression ////////////////////////////////////////////////
+      // const fuse = new Fuse(nutrientsList.supplements, options);
+
+      // const formattedResults = fuseResults.forEach((result) => {
+      //   const regex = new RegExp(
+      //     `(${result.item.name} \\d+\\s*(mg|g|IU))`,
+      //     "i"
+      //   );
+      //   const match = text.match(regex);
+      //   if (match) {
+      //     const parts = match[0].split(" ");
+      //     console.log({
+      //       Nutrition: parts.slice(0, -2).join(" "),
+      //       Value: parts.slice(-2).join(" "),
+      //     });
+      //   }
+      // });
+      //////////////////////////////////////////////////////////////////////////////////////////////////
 
       //Data 형식은 [
       // {item: {name: Vitamin B Complex}}

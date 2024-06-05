@@ -2,16 +2,19 @@ import Table from "../Components/Table/index";
 import Button from "../Components/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import ImageContainer from "../Components/ImageContainer";
 
 function SubmitInfoPage() {
   const [imgUrl, setImgUrl] = useState(null);
   const [screenshot, setScreenshot] = useState(false);
   const navigate = useNavigate();
 
-  const SubmitData = () => {
-    const data = sessionStorage.getItem("data");
-    console.log("Submit Data", data); // after connecting to backend api. erase it
-  };
+  // const SubmitData = () => {
+  //   // after connecting to backend api. erase it
+  //   // need to triger chatGPT APi
+
+  //   navigate("/info");
+  // };
 
   return (
     <>
@@ -20,24 +23,15 @@ function SubmitInfoPage() {
         style={{ margin: "50px", padding: "5%" }}
       >
         <h3>Vitamin C</h3>
-        <div
-          style={{
-            width: "25%",
-            height: "200px",
-            border: "1px solid orange",
-            marginBottom: "50px",
-          }}
-        ></div>
+        <ImageContainer />
         <Table />
         <div style={{ marginTop: "50px", textAlign: "center" }}>
-          <Link to="/result">
-            <Button
-              onClick={() => SubmitData()}
-              className="text-white bg-[#81C667]"
-            >
-              Send
-            </Button>
-          </Link>
+          <Button
+            onClick={() => navigate("/info")}
+            className="text-white bg-[#81C667]"
+          >
+            Send
+          </Button>
           <Button
             onClick={() => {
               setImgUrl(null);

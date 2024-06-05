@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
+import ImageContainer from "../Components/ImageContainer";
 
 function InfoDisplayPage() {
   //base64로 인코딩된 이미지는 그대로 sorce로도 사용가능
-  const img = useSelector((state) => state.camera.image);
   const text = useSelector((state) => state.text.extractedText);
-  console.log(text.map((nutrients) => nutrients.item.name));
+  console.log(text);
 
   return (
     <>
@@ -13,21 +13,7 @@ function InfoDisplayPage() {
         style={{ margin: "50px", padding: "5%" }}
       >
         <h3>Vitamin C</h3>
-        <div
-          style={{
-            width: "50%",
-            height: "250px",
-            border: "1px solid orange",
-            marginBottom: "50px",
-            marginTop: "20px ",
-          }}
-        >
-          <img
-            src={img}
-            alt="Captured"
-            style={{ width: "100%", height: "100%" }}
-          />
-        </div>
+        <ImageContainer />
         <div>
           <span style={{ position: "absolute", top: "75%", left: "40%" }}>
             <img src="/Icons/loadingIcon.png" alt="Loading" />
@@ -41,8 +27,8 @@ function InfoDisplayPage() {
               border: "1px solid #81C667",
             }}
           >
-            {text.map((nutrients) => (
-              <li>{nutrients.item.name}</li>
+            {text.map((item) => (
+              <li>{item.Nutrition}</li>
             ))}
           </ul>
         </div>
