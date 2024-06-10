@@ -21,18 +21,23 @@ function SubmitInfoPage() {
         <Table />
         <div style={{marginTop: '50px', textAlign: 'center'}}>
         <Link to='/result'>
-              <Button
+              {/* <Button
               onClick={() => SubmitData()}
               className="text-white bg-[#81C667]">
                 Send
+              </Button> */}
+              <Button
+              onClick={() => SubmitData()}
+              className="text-white bg-[#81C667]">
+                More info on each nutrients
               </Button>
               </Link>
-              <Button
+              {/* <Button
                 onClick={() =>  window.location.reload()}
                 className="bg-white text-[#81C667] border-2 border-[#81C668] "
               >
                 Refresh
-              </Button>
+              </Button> */}
               </div>
     </div>
   );

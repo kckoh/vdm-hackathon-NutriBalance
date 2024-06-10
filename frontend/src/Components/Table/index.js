@@ -65,7 +65,7 @@ const data = [
         <thead style={{background:"#81C667", width: '100%', color: '#fff', position: 'sticky'}}>
          <tr>
             <th style={{padding: '15px', textAlign: 'center', }} >Nutrition</th>
-            <th style={{padding: '15px', textAlign: 'center', }}>Value            
+            <th style={{padding: '15px', textAlign: 'center', }}>D/R Amount            
       </th>
          </tr>
         </thead>
