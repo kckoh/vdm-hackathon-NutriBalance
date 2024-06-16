@@ -4,7 +4,6 @@ import ImageContainer from "../Components/ImageContainer";
 function InfoDisplayPage() {
   //base64로 인코딩된 이미지는 그대로 sorce로도 사용가능
   const text = useSelector((state) => state.text.extractedText);
-  console.log(text);
 
   return (
     <>
@@ -27,6 +26,7 @@ function InfoDisplayPage() {
               border: "1px solid #81C667",
             }}
           >
+            {/* Data를 fetch  */}
             {text.map((item) => (
               <li>{item.Nutrition}</li>
             ))}

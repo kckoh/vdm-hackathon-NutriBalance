@@ -5,7 +5,9 @@ const path = require("path");
 const fs = require("fs");
 
 const { ImageAnnotatorClient } = require("@google-cloud/vision");
-const client = new ImageAnnotatorClient();
+const client = new ImageAnnotatorClient({
+  keyFilename: "./nutribalance.json",
+});
 
 const Fuse = require("fuse.js");
 
@@ -36,6 +38,10 @@ exports.sendImage = router.post(
   async (req, res) => {
     try {
       //filePath를 통해서 저장된 파일의 path를 알 수 있다.
+      if (!req.file) {
+        return res.status(400).send("No file uploaded");
+      }
+
       const filePath = req.file.path;
       const [result] = await client.textDetection(filePath);
       const detections = result.textAnnotations;
@@ -59,6 +65,10 @@ exports.sendImage = router.post(
       );
 
       const fuseResults = fuse.search(text);
+
+      //만약 찾고자 하는 영양소가 리스트에 없는 경우에 추가할 수 있을까? 그럴려면
+      //영양소 리스트를 데이터 base에 저장해서 찾는 방식으로 approach하고 없는 경우는
+      //없는 영양소를 하루 추천 권장량과 데이터 베이스에 추가 해야 한다
 
       //change the data format
       console.log("fuuuuuuuuuuuuuuuuuuuu", fuseResults);

@@ -79,6 +79,78 @@
     {
       "name": "Glucosamine",
       "dailyRecommendedAmount": "1500 mg"
+    },
+    {
+      "name": "Folic Acid",
+      "dailyRecommendedAmount": "400 mcg"
+    },
+    {
+      "name": "Vitamin A",
+      "dailyRecommendedAmount": "900 mcg"
+    },
+    {
+      "name": "Vitamin B12",
+      "dailyRecommendedAmount": "2.4 mcg"
+    },
+    {
+      "name": "Vitamin B6",
+      "dailyRecommendedAmount": "1.3 mg"
+    },
+    {
+      "name": "Niacin (Vitamin B3)",
+      "dailyRecommendedAmount": "16 mg"
+    },
+    {
+      "name": "Riboflavin (Vitamin B2)",
+      "dailyRecommendedAmount": "1.3 mg"
+    },
+    {
+      "name": "Thiamine (Vitamin B1)",
+      "dailyRecommendedAmount": "1.2 mg"
+    },
+    {
+      "name": "Copper",
+      "dailyRecommendedAmount": "900 mcg"
+    },
+    {
+      "name": "Manganese",
+      "dailyRecommendedAmount": "2.3 mg"
+    },
+    {
+      "name": "Chromium",
+      "dailyRecommendedAmount": "35 mcg"
+    },
+    {
+      "name": "Molybdenum",
+      "dailyRecommendedAmount": "45 mcg"
+    },
+    {
+      "name": "Phosphorus",
+      "dailyRecommendedAmount": "700 mg"
+    },
+    {
+      "name": "Vitamin B5 (Pantothenic Acid)",
+      "dailyRecommendedAmount": "5 mg"
+    },
+    {
+      "name": "Fluoride",
+      "dailyRecommendedAmount": "4 mg"
+    },
+    {
+      "name": "Boron",
+      "dailyRecommendedAmount": "Varies"
+    },
+    {
+      "name": "Lycopene",
+      "dailyRecommendedAmount": "Varies"
+    },
+    {
+      "name": "Lutein",
+      "dailyRecommendedAmount": "Varies"
+    },
+    {
+      "name": "Zeaxanthin",
+      "dailyRecommendedAmount": "Varies"
     }
   ]
 }

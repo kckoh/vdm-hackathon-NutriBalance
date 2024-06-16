@@ -1,20 +1,25 @@
 import Table from "../Components/Table/index";
 import Button from "../Components/Button";
-import { Link, useNavigate } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import ImageContainer from "../Components/ImageContainer";
+import { useSelector } from "react-redux";
+import { requestMoreInfo } from "../util/api";
 
 function SubmitInfoPage() {
-  const [imgUrl, setImgUrl] = useState(null);
-  const [screenshot, setScreenshot] = useState(false);
+  const data = useSelector((state) => state.text.extractedText);
   const navigate = useNavigate();
 
-  // const SubmitData = () => {
-  //   // after connecting to backend api. erase it
-  //   // need to triger chatGPT APi
+  const [imgUrl, setImgUrl] = useState(null);
+  const [screenshot, setScreenshot] = useState(false);
+  const [dataArray, setDataArray] = useState(data);
 
-  //   navigate("/info");
-  // };
+  const requestMoreInfoHandler = async () => {
+    navigate("/info");
+    const moreInfo = await requestMoreInfo(dataArray);
+    console.log(moreInfo);
+  };
 
   return (
     <>
@@ -27,10 +32,10 @@ function SubmitInfoPage() {
         <Table />
         <div style={{ marginTop: "50px", textAlign: "center" }}>
           <Button
-            onClick={() => navigate("/info")}
+            onClick={requestMoreInfoHandler}
             className="text-white bg-[#81C667]"
           >
-            Send
+            More Info
           </Button>
           <Button
             onClick={() => {

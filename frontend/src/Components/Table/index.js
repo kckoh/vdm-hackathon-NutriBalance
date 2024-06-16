@@ -1,27 +1,10 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-//useSelector으로 받아오는 데이터는 아래와 같이 받아와야 한다.
-const data = [
-  {
-    Nutrition: "Vitamin D",
-    Value: "50 mmg",
-  },
-  {
-    Nutrition: "Iron",
-    Value: "30 mmg",
-  },
-  {
-    Nutrition: "Mineral",
-    Value: "50 mmg",
-  },
-];
-
 function Table() {
   const data = useSelector((state) => state.text.extractedText);
 
   const [dataArray, setDataArray] = useState(data);
-  const [valueArray, setValueArray] = useState();
 
   function ConvertDataFormat(data) {
     const newData = data.map((item) => {
@@ -91,7 +74,9 @@ function Table() {
         >
           <tr>
             <th style={{ padding: "15px", textAlign: "center" }}>Nutrition</th>
-            <th style={{ padding: "15px", textAlign: "center" }}>Value</th>
+            <th style={{ padding: "15px", textAlign: "center" }}>
+              *D/R Amount
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -167,6 +152,7 @@ function Table() {
           })}
         </tbody>
       </table>
+      <p>*D/R: Daily Recommended</p>
     </div>
   );
 }
