@@ -1,5 +1,4 @@
 export async function sendData(imageBase64) {
-  console.log("whyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy????????");
   const response = await fetch(imageBase64);
   const blob = await response.blob();
 
@@ -13,7 +12,6 @@ export async function sendData(imageBase64) {
       body: formData,
     }
   );
-
   if (!fetchResponse.ok) {
     throw new Error("Failed to send image");
   }
@@ -42,6 +40,7 @@ export async function requestMoreInfo(dataArray) {
       throw new Error("Failed to have more info");
     }
 
+    console.log("fetchMoreInfo", fetchMoreInfo);
     return await fetchMoreInfo.json();
   } catch (error) {
     console.error("Error requesting more info", error);

@@ -45,6 +45,10 @@ exports.sendImage = router.post(
       const filePath = req.file.path;
       const [result] = await client.textDetection(filePath);
       const detections = result.textAnnotations;
+
+      if (!detections)
+        return "there is no text! Please take a picture properly";
+
       const text = detections.length ? detections[0].description : "";
 
       console.log("Text is successfully extracted!");

@@ -30,10 +30,13 @@ const ImgUploadPage = () => {
     try {
       //save image to transfer to info page
       dispatch(saveImage(imgUrl));
+
+      //response have texts from the image
       const response = await sendData(imgUrl);
 
-      //get extracted text from backend
+      //Save extracted nutrients from image into redux store.
       dispatch(getExtractedText(response));
+
       console.log("Image sent successfully", response);
       navigate("/submitInfo");
     } catch (error) {

@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { requestMoreInfo } from "../util/api";
 
 function SubmitInfoPage() {
+  // get the data from the redux store
   const data = useSelector((state) => state.text.extractedText);
   const navigate = useNavigate();
 
@@ -34,6 +35,7 @@ function SubmitInfoPage() {
           <Button
             onClick={requestMoreInfoHandler}
             className="text-white bg-[#81C667]"
+            disabled={dataArray.length === 0}
           >
             More Info
           </Button>

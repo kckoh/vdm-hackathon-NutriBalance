@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { removeExtractedText } from "../../reducers/getText";
+import { useDispatch } from "react-redux";
 
 function Table() {
+  const dispatch = useDispatch();
   const data = useSelector((state) => state.text.extractedText);
-
   const [dataArray, setDataArray] = useState(data);
 
   function ConvertDataFormat(data) {
@@ -35,6 +37,16 @@ function Table() {
   };
 
   const ClickDeleteButton = (id) => {
+    //여기에 id가 아니라 value 자체가 들어가서 value 자체와 비교해야 함, 아니면
+    //실제로 들어오게 되는 item에 unique한 key 혹은 id를 배정하던가
+    console.log("idddddddddddddd", id);
+
+    dispatch(removeExtractedText(id));
+    //need to get updated data refected by the remove redux
+    // const data = useSelector((state) => state.text.extractedText);
+    console.log(data);
+
+    // Modify the dataArray
     const newData = [...dataArray];
     const deleteItem = newData.findIndex((item) => item.id === id);
     if (deleteItem !== -1) {
@@ -101,7 +113,7 @@ function Table() {
                     onChange={(e) =>
                       CorrectInput(e, row.Nutrition, "Nutrition")
                     }
-                    value={row.Nutrition}
+                    value={row.value}
                   />
                 </td>
                 <td
