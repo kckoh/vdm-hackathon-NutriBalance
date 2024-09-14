@@ -8,7 +8,6 @@ const { ImageAnnotatorClient } = require("@google-cloud/vision");
 const client = new ImageAnnotatorClient({
   keyFilename: "./nutribalance.json",
 });
-
 const Fuse = require("fuse.js");
 
 const nutrientsNameLists = fs.readFileSync(
