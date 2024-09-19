@@ -14,6 +14,7 @@ const nutrientsNameLists = fs.readFileSync(
   "./lib/nutrientsLists.json",
   "utf-8"
 );
+
 const nutrientsList = JSON.parse(nutrientsNameLists);
 
 // Image handling
@@ -50,9 +51,9 @@ exports.sendImage = router.post(
 
       const text = detections.length ? detections[0].description : "";
 
-      console.log("Text is successfully extracted!");
-      console.log(text);
+      console.log("Text is successfully extracted!", text);
 
+      //찾은 text을 fuse를 통해서 영양소 리스트에서 찾는다.
       const options = {
         includeScore: true,
         threshold: 0.8,

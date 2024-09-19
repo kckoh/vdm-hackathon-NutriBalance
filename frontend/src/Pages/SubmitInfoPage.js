@@ -1,25 +1,33 @@
 import Table from "../Components/Table/index";
 import Button from "../Components/Button";
+import ImageContainer from "../Components/ImageContainer";
 
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import ImageContainer from "../Components/ImageContainer";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { requestMoreInfo } from "../util/api";
 
 function SubmitInfoPage() {
-  // get the data from the redux store
-  const data = useSelector((state) => state.text.extractedText);
   const navigate = useNavigate();
 
-  const [imgUrl, setImgUrl] = useState(null);
-  const [screenshot, setScreenshot] = useState(false);
-  const [dataArray, setDataArray] = useState(data);
+  // get the extracted texts from the redux store
+  const data = useSelector((state) => state.text.extractedText);
+
+  const [dataArray, setDataArray] = useState([]);
+
+  useEffect(() => {
+    setDataArray(data);
+  }, [data]);
 
   const requestMoreInfoHandler = async () => {
-    navigate("/info");
-    const moreInfo = await requestMoreInfo(dataArray);
-    console.log(moreInfo);
+    navigate("/infoDisplayPage");
+    //To get more info by using chatGPT API, and need to pass this data to next page.
+    //I think there are two ways to do so,
+    //First, I need to pass this data to next page with a certain component with props.
+    //Second, I can use redux to store this data and use it in the next page.
+    //I think the second way is better because it is more convenient to manage the data.
+    const getMoreInfo = await requestMoreInfo(dataArray);
+    console.log("getMoreInfo", getMoreInfo);
   };
 
   return (
@@ -28,7 +36,7 @@ function SubmitInfoPage() {
         className="InfoDisplayPage"
         style={{ margin: "50px", padding: "5%" }}
       >
-        <h3>Vitamin C</h3>
+        <h3>Captured Image</h3>
         <ImageContainer />
         <Table />
         <div style={{ marginTop: "50px", textAlign: "center" }}>
@@ -41,8 +49,6 @@ function SubmitInfoPage() {
           </Button>
           <Button
             onClick={() => {
-              setImgUrl(null);
-              setScreenshot(false);
               navigate("/upload_image");
             }}
             className="bg-white text-[#81C667] border-2 border-[#81C668] "

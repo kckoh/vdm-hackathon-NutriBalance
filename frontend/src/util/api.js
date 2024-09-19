@@ -1,22 +1,29 @@
 export async function sendData(imageBase64) {
-  const response = await fetch(imageBase64);
-  const blob = await response.blob();
+  try {
+    const response = await fetch(imageBase64);
+    const blob = await response.blob();
 
-  const formData = new FormData();
-  formData.append("file", blob, "image.png");
+    const formData = new FormData();
+    formData.append("file", blob, "image.png");
 
-  const fetchResponse = await fetch(
-    "http://localhost:3060/api/v1/images/send",
-    {
-      method: "POST",
-      body: formData,
+    const fetchResponse = await fetch(
+      "http://localhost:3060/api/v1/images/send",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    if (!fetchResponse.ok) {
+      throw new Error("Failed to send image");
     }
-  );
-  if (!fetchResponse.ok) {
+
+    //get the response from the server
+    return await fetchResponse.json();
+  } catch (error) {
+    console.error("Error sending image", error);
     throw new Error("Failed to send image");
   }
-
-  return await fetchResponse.json();
 }
 
 export async function requestMoreInfo(dataArray) {
